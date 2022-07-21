@@ -12,72 +12,115 @@
 
 <body>
     <form action="http://localhost:5500/html_basic_form.html" method="post">
-        <!--hidden-->
-        隐藏域
-        <input type="hidden" name="userid" value="1" />
-        <br>
-        <!--username-->
-        用户名
-        <input type="text" name="username" />
-        <br>
-        <!--password-->
-        密码
-        <input type="password" name="userpwd" />
-        <br>
-        <!--confirm password-->
-        确认密码
-        <input type="password" />
-        <br>
-        <!--gender-->
-        性别
-        <input type="radio" name="gender" value="male" checked />男
-        <input type="radio" name="gender" value="female" />女
-        <br>
-        <!--hobby-->
-        爱好
-        <input type="checkbox" name="hobby" value="football" />足球
-        <input type="checkbox" name="hobby" value="piano" />钢琴
-        <input type="checkbox" name="hobby" value="genshin" />原神
-        <br>
-        <!--education-->
-        学历
-        <select name="education">
-            <option value="primary">小学</option>
-            <option value="junior">初中</option>
-            <option value="senior">高中</option>
-            <option value="specialty">专科</option>
-            <option value="bachelor">本科</option>
-            <option value="master">硕士</option>
-            <option value="doctor">博士</option>
-        </select>
-        <br>
-        <!--multiple select-->
-        多选测试
-        <select name="multi_test" multiple="multiple" size="5">
-            <option value="a">a</option>
-            <option value="b">b</option>
-            <option value="c">c</option>
-            <option value="d">d</option>
-            <option value="e">e</option>
-            <option value="f">f</option>
-            <option value="g">g</option>
-        </select>
-        <br>
-        <!--brief-->
-        简介
-        <textarea name="brief" rows="6" cols="30"></textarea>
-        <br>
-        <!--file-->
-        上传文件
-        <input type="file" />
-        <br>
-        <!--submit-->
-        <input type="submit" value="注册" />
-        <br>
-        <!--reset-->
-        <input type="reset" value="重置" />
+        <table border="1px">
+            <thead>
+                <th colspan="2">登陆</th>
+            </thead>
+            <!--hidden-->
+            <tbody id="a">
+                <td>隐藏域</td>
+                <td><input type="hidden" name="userid" value="1" /></td>
+            </tbody>
+            <!--readonly-->
+            <tbody id="a">
+                <td>只读测试</td>
+                <td><input type="text" name="ronly" value="1" readonly /></td>
+            </tbody>
+            <!--disabled-->
+            <tbody>
+                <td>禁用测试</td>
+                <td><input type="text" name="disable" value="1" disabled /></td>
+            </tbody>
+            <!--username-->
+            <tbody>
+                <td>用户名(最多15位)</td>
+                <td><input type="text" name="username" maxlength="15" /></td>
+            </tbody>
+            <!--password-->
+            <tbody>
+                <td>密码(最多20位)</td>
+                <td><input type="password" name="userpwd" maxlength="20" /></td>
+            </tbody>
+            <!--confirm password-->
+            <tbody>
+                <td>确认密码</td>
+                <td><input type="password" maxlength="20" /></td>
+            </tbody>
+            <!--gender-->
+            <tbody>
+                <td>性别</td>
+                <td><input type="radio" name="gender" value="male" checked />男
+                    <input type="radio" name="gender" value="female" />女
+                </td>
+            </tbody>
+            <!--hobby-->
+            <tbody>
+                <td>爱好</td>
+                <td><input type="checkbox" name="hobby" value="football" />足球
+                    <br>
+                    <input type="checkbox" name="hobby" value="piano" />钢琴
+                    <br>
+                    <input type="checkbox" name="hobby" value="genshin" />原神
+                </td>
+            </tbody>
+            <!--education-->
+            <tbody>
+                <td>学历</td>
+                <td><select name="education">
+                        <option value="primary">小学</option>
+                        <option value="junior">初中</option>
+                        <option value="senior">高中</option>
+                        <option value="specialty">专科</option>
+                        <option value="bachelor">本科</option>
+                        <option value="master">硕士</option>
+                        <option value="doctor">博士</option>
+                    </select></td>
+            </tbody>
+            <!--multiple select-->
+            <tbody>
+                <td>多选测试</td>
+                <td id="a"><select name="multi_test" multiple="multiple" size="5">
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                        <option value="d">d</option>
+                        <option value="e">e</option>
+                        <option value="f">f</option>
+                        <option value="g">g</option>
+                    </select></td>
+            </tbody>
+            <!--brief-->
+            <tbody>
+                <td>简介</td>
+                <td><textarea name="brief" rows="6" cols="30"></textarea></td>
+            </tbody>
+            <!--file-->
+            <tbody>
+                <td>上传文件</td>
+                <td><input type="file" /></td>
+            </tbody>
+            <!--queryselectorall()-->
+            <tbody>
+                <td>多项选择器测试</td>
+                <td><span id="qcontainer"></span></td>
+            </tbody>
+            <tfoot>
+                <!--submit-->
+                <td colspan="2"><input type="submit" value="注册" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <!--reset-->
+                    <input type="reset" value="重置" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <!--test-->
+                    <input type="button" onclick="setText()" value="测试" />
+                </td>
+            </tfoot>
+        </table>
     </form>
     <script>
+        let id_selector = document.querySelectorAll("#a");
+        let text_selector = document.querySelector("#qcontainer");
+        function setText() { text_selector.textContent = id_selector.length; }
     </script>
 </body>
 
