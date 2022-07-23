@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="ch">
+
+<head>
+    <meta charset="utf-8">
+    <title>表单特性练习</title>
+    <p>教程链接：
+        <a href="https://www.bilibili.com/video/BV16K4y1Z7Gb?p=3">b站 haorooms博客</a>
+    </p>
+</head>
+
+<body>
+    <form action="" method="post" enctype="multipart/form-data" autocomplete="on">
+        <input type="file" />
+        <!--label关联input-->
+        <label for="username">用户名</label>
+        <!--autofocus和required-->
+        <input type="text" name="user" placeholder="请输入用户名" id="username" required autofocus />
+
+        <label for="wknumber">工号</label>
+        <!--pattern的使用-->
+        <input type="text" name="wknumber" palceholder="请输入工号" id="wknumber" required pattern="^\d{5}[imooc]$" />
+
+        <input type="text" list="tips" />
+        <datalist id="tips">
+            <option value="good">I feel good!</option>
+            <option value="not_bad">Not bad, not bad.</option>
+            <option value="bad">It sucks.</option>
+            <option value="dont_know">I don't know.</option>
+        </datalist>
+        <input type="submit" name="submit" />
+        <!--formnovalidate测试-->
+        <input type="submit" name="submit_anyway" value="直接来吧！" formnovalidate />
+    </form>
+</body>
+
+</html>
